@@ -1,12 +1,17 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/DB_NAME_HERE');
+const username = require('./db-creds.secret').username;
+const password = require('./db-creds.secret').password;
 
-const db = mongoose.connection;
+const cluster = 'cluster0.blhifsj';
+const mongoURI = `mongodb+srv://${username}:${password}@${cluster}.mongodb.net/531?retryWrites=true&w=majority`;
 
-db.on('error', () => {
-  console.log('--> Mongoose failed to connect');
-});
+const db = mongoose.connect(mongoURI, { useNewUrlParser: true });
 
-db.once('open', () => {
-  console.log('--> Mongoose connected!');
-});
+db.then((db) => console.log(`Connected to mongodb! ${cluster}`)).catch(
+  (err) => {
+    console.log(`There was a problem connecting to mongo at: ${mongoURI}`);
+    console.log(err);
+  }
+);
+
+module.exports = db;

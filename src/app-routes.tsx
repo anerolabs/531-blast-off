@@ -2,8 +2,7 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 import App from './App';
-import { ErrorView, HomeView } from './views';
-import { UpcomingWorkoutsView } from './views/UpcomingWorkouts';
+import { ErrorView, HomeView, CycleView } from './views';
 
 export const router = createBrowserRouter([
   {
@@ -14,6 +13,10 @@ export const router = createBrowserRouter([
       {
         path: '',
         element: <HomeView />,
+      },
+      {
+        path: '/cycle',
+        element: <CycleView />,
       },
     ],
   },

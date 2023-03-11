@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { UpcomingWorkoutsView } from './UpcomingWorkouts';
+import { CycleView } from './CycleView';
 
 export function HomeView() {
-  return <UpcomingWorkoutsView />;
+  return <CycleView />;
 }

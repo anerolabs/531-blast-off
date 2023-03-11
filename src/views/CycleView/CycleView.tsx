@@ -1,16 +1,28 @@
 import React, { useEffect, useState } from 'react';
+import { useGetWorkouts } from '../../hooks/useGetWorkouts';
+
 import { ViewHeader } from '../../components/viewheader/ViewHeader';
-import { useWorkouts } from '../../hooks/useWorkouts';
+import { WorkoutSummaryCard } from './internal/WorkoutSummaryCard';
 // import { DataGrid, GridColDef } from '@mui/x-data-grid';
 // import { Link } from 'react-router-dom';
 
-export function UpcomingWorkoutsView() {
-  const { workouts, isLoading } = useWorkouts();
+export function CycleView() {
+  const { data: workouts, isLoading } = useGetWorkouts();
+
+  console.log(workouts);
 
   return (
     <>
       <ViewHeader title="Current Cycle" />
-      Hello world
+      {workouts &&
+        workouts.map((workout) => {
+          return (
+            <WorkoutSummaryCard
+              key={`workout-${workout.cycle}-${workout.week}-${workout.day}`}
+              workout={workout}
+            />
+          );
+        })}
     </>
   );
 }

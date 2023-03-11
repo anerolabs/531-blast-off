@@ -1,3 +1,3 @@
 export * from './ErrorView';
 export * from './HomeView';
-export * from './UpcomingWorkouts';
+export * from './CycleView';
