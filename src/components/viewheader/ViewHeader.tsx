@@ -23,7 +23,8 @@ export function ViewHeader(props: ViewHeaderProps) {
   const navigate = useNavigate();
 
   const handleActionClick = () => {
-    return action?.onClick ? action?.onClick() : navigate('/invoices');
+    if (!action) return;
+    return action.onClick ? action.onClick() : navigate(action.route);
   };
 
   return (

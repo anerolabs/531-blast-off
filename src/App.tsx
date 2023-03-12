@@ -24,7 +24,7 @@ export default function App() {
             padding: 2,
           }}
         >
-          <Header logoClickRoute="/" />
+          <Header onLogoClickRoute="/" />
 
           <ViewContainer>
             <Outlet />

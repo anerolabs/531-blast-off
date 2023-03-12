@@ -48,6 +48,7 @@ const config = {
           },
         },
       },
+      // { test: /\.css$/, use: ['css-loader'] },
     ],
   },
   plugins: [

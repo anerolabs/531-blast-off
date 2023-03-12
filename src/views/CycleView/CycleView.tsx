@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useGetWorkouts } from '../../hooks/useGetWorkouts';
 
 import { ViewHeader } from '../../components/viewheader/ViewHeader';
-import { SummaryCard } from './internal/SummaryCard';
+import { SummaryCard } from './SummaryCard';
 // import { DataGrid, GridColDef } from '@mui/x-data-grid';
 // import { Link } from 'react-router-dom';
 

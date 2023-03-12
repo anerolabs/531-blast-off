@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Workout, Exercise } from '../../../hooks/useGetWorkouts';
+import { Workout, Exercise } from '../../hooks/useGetWorkouts';
 
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';

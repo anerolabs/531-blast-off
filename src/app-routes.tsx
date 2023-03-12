@@ -2,7 +2,13 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 import App from './App';
-import { ErrorView, HomeView, CycleView } from './views';
+import {
+  CreateProgramView,
+  CycleView,
+  ErrorView,
+  HomeView,
+  ProgramView,
+} from './views';
 
 export const router = createBrowserRouter([
   {
@@ -15,8 +21,16 @@ export const router = createBrowserRouter([
         element: <HomeView />,
       },
       {
-        path: '/cycle',
+        path: '/my/workout',
         element: <CycleView />,
+      },
+      {
+        path: '/my/programs',
+        element: <ProgramView />,
+      },
+      {
+        path: '/my/programs/create',
+        element: <CreateProgramView />,
       },
     ],
   },
