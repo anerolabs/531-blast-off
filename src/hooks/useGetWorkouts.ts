@@ -19,7 +19,7 @@ export type Workout = {
 };
 
 export type Exercise = {
-  exercise: string;
+  name: string;
   group: string;
   sets: number;
   reps: number;

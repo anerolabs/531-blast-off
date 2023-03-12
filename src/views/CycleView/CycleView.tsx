@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useGetWorkouts } from '../../hooks/useGetWorkouts';
 
 import { ViewHeader } from '../../components/viewheader/ViewHeader';
-import { WorkoutSummaryCard } from './internal/WorkoutSummaryCard';
+import { SummaryCard } from './internal/SummaryCard';
 // import { DataGrid, GridColDef } from '@mui/x-data-grid';
 // import { Link } from 'react-router-dom';
 
 export function CycleView() {
   const { data: workouts, isLoading } = useGetWorkouts();
-
-  console.log(workouts);
 
   return (
     <>
@@ -17,7 +15,7 @@ export function CycleView() {
       {workouts &&
         workouts.map((workout) => {
           return (
-            <WorkoutSummaryCard
+            <SummaryCard
               key={`workout-${workout.cycle}-${workout.week}-${workout.day}`}
               workout={workout}
             />
