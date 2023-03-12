@@ -6,31 +6,40 @@ import { CustomProgram } from './internal/CustomProgram';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const templateMap: { [templateName: string]: JSX.Element } = {
-  't-custom': CustomProgram(),
+const templateMap: {
+  [templateName: string]: { label: string; element: React.FC };
+} = {
+  't-custom': {
+    label: 'Custom program',
+    element: CustomProgram,
+  },
+  't-531beginners': {
+    label: '5/3/1 for Beginners',
+    element: CustomProgram,
+  },
 };
 
 export function CreateProgramView() {
   const [template, setTemplate] = useState('');
-  // const onTemplateClick = (templateId: string) => setTemplate(templateId);
-
+  const TemplateForm: React.FC = templateMap[template]?.element;
   return (
     <>
       <ViewHeader title="Create Program" />
       {!template ? (
         <>
           <Typography variant={'overline'}>Choose Template</Typography>
-          <Button onClick={() => setTemplate('t-custom')}>
-            Custom program
-          </Button>
-          <Button onClick={() => setTemplate('t-531beginners')}>
-            5/3/1 for Beginners
-          </Button>
+          {Object.keys(templateMap).map((template) => {
+            return (
+              <Button key={template} onClick={() => setTemplate(template)}>
+                {templateMap[template].label}
+              </Button>
+            );
+          })}
         </>
       ) : (
         <>
           <Button onClick={() => setTemplate('')}>Back</Button>
-          {templateMap[template]}
+          <TemplateForm />
         </>
       )}
     </>
